@@ -1,331 +1,176 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta name="msvalidate.01" content="574044E39556B8B8DAAF1D1F233C87B0" />
-  <meta name="google-site-verification" content="eWVDN3vbam9nnaZQu7wAQKyfmJJdM7zjI80l4DGeUrQ" />
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>File Your Taxes Online Today — Fast, Free, Secure (U.S. & Territories)</title>
-<meta name="description" content="E-file your taxes online now. Fast, secure, IRS-authorized. Available in all 50 states & U.S. territories. Get your refund faster.">
-<meta name="robots" content="index, follow">
-<!-- Structured Data for FAQ Rich Snippets -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is e-filing IRS authorized?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, our platform is fully IRS-authorized and secure for all tax filings."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you cover all U.S. states and territories?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, e-filing is available in all 50 states plus Puerto Rico, Guam, U.S. Virgin Islands, American Samoa, and Northern Mariana Islands."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How fast will I get my refund?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Refunds are processed fastest via direct deposit once the IRS approves your submission."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can first-timers use this platform?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely! Step-by-step guidance is provided for beginners and experienced filers alike."
-      }
-    }
-  ]
-}
-</script>
+    >Or enter your state/territory:</p>
+    <input type="text" id="stateSearch" placeholder="e.g. Pennsylvania, Puerto Rico">
+    <button onclick="checkState()">Check</button>
+    <div id="stateMessage"></div>
+  </div>
 
-<style>
-body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f8f9fa; color:#333; }
-section, header, footer { max-width:900px; margin:0 auto; }
-h1,h2,h3,h4 { margin:10px 0; }
-p { margin:10px 0; }
-.btn-cta { background:#ffcc00; color:#000; padding:15px 30px; font-weight:bold; text-decoration:none; border-radius:5px; display:inline-block; margin:10px 0; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.btn-cta:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-.lookup-widget { margin:15px 0; }
-.lookup-widget input { padding:10px; width:60%; margin-right:10px; border-radius:4px; border:1px solid #ccc; }
-.lookup-widget button { padding:10px 15px; border:none; background:#0077cc; color:#fff; border-radius:4px; cursor:pointer; transition: transform 0.2s ease; }
-.lookup-widget button:hover { transform: scale(1.03); }
-.countdown-box, .refund-box, .faq-box { background:#fff; padding:20px; border-radius:8px; margin:15px 0; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-.faq-box ul { padding-left:20px; }
-.faq-box li { margin-bottom:8px; opacity:0; transform: translateY(20px); animation: fadeUp 0.5s forwards; }
-.faq-box li:nth-child(1){ animation-delay:0.2s; }
-.faq-box li:nth-child(2){ animation-delay:0.4s; }
-.faq-box li:nth-child(3){ animation-delay:0.6s; }
-.faq-box li:nth-child(4){ animation-delay:0.8s; }
-.hero-badge { opacity:0; transform: translateY(20px); animation: fadeUp 0.5s forwards; }
-.hero-badge:nth-child(1){ animation-delay:0.2s; }
-.hero-badge:nth-child(2){ animation-delay:0.4s; }
-.hero-badge:nth-child(3){ animation-delay:0.6s; }
-.hero-badge:nth-child(4){ animation-delay:0.8s; }
-@keyframes fadeUp { to { opacity:1; transform: translateY(0); } }
-.countdown-box { display:inline-block; padding:10px 20px; border-radius:5px; background:rgba(255,255,255,0.2); animation: pulse 1.5s infinite; color:#fff; font-weight:bold; margin:5px 0; }
-@keyframes pulse { 0% { transform: scale(1); opacity:1; } 50% { transform: scale(1.05); opacity:0.9; } 100% { transform: scale(1); opacity:1; } }
-.refund-box button { transition: background 0.3s ease, transform 0.2s ease; }
-.refund-box button:hover { background:#005ea6; transform: scale(1.03); }
-header img { animation: float 3s ease-in-out infinite; max-width:200px; margin-top:30px; }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-#stickyCTA { position:fixed; bottom:20px; right:20px; z-index:9999; box-shadow:0 4px 15px rgba(0,0,0,0.3); animation: pulse 1.5s infinite; }
-#stickyCTA:hover { transform: scale(1.1); box-shadow:0 6px 20px rgba(0,0,0,0.35); }
-#progressBar { position:fixed; top:0; left:0; width:0%; height:5px; background:#ffcc00; z-index:9999; transition: width 0.25s ease; }
-@media(max-width:600px){ .lookup-widget input{ width:100%; margin-bottom:10px; } .lookup-widget button{ width:100%; } }
-</style>
-</head>
+  <div class="lookup-widget">
+    <p>Or enter your city:</p>
+    <input type="text" id="citySearch" placeholder="e.g. Philadelphia">
+    <button onclick="checkCity()">Check</button>
+    <div id="cityMessage"></div>
+  </div>
 
-<body>
+  <div class="lookup-widget">
+    <p>Or enter your area code:</p>
+    <input type="text" id="areaCodeSearch" placeholder="e.g. 215">
+    <button onclick="checkAreaCode()">Check</button>
+    <div id="areaCodeMessage"></div>
+  </div>
 
-<!-- SCROLL PROGRESS BAR -->
-<div id="progressBar"></div>
+  <div class="refund-box">
+    <h4>Estimate Your Refund</h4>
+    <input type="number" id="income" placeholder="Annual income ($)">
+    <input type="number" id="withheld" placeholder="Federal tax withheld ($)">
+    <button onclick="estimateRefund()">Estimate</button>
+    <div id="refundResult"></div>
+  </div>
 
-<!-- HERO SECTION -->
-<header style="background:#0077cc;color:#fff;padding:60px 20px;text-align:center;position:relative;">
-  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg, rgba(0,119,204,0.8), rgba(0,102,170,0.8));z-index:0;"></div>
-  <div style="position:relative;z-index:1;">
-    <h1 style="font-size:2.5rem;">File Your Taxes Online — Fast & Secure</h1>
-    <p style="font-size:1.2rem;">Available in all 50 states & U.S. territories. Get your refund faster with direct deposit.</p>
-    <a href="https://bit.ly/3QbSqVG" class="btn-cta" rel="sponsored">Start E-File Now →</a>
+  <div class="countdown-box" style="background:#ffeb3b;color:#000;">
+    💡 Daily Tip: <span id="dailyTip"></span>
+  </div>
 
-    <!-- COUNTDOWNS -->
-    <div class="countdown-box">⏰ Regular Tax Deadline: <span id="regularCountdown"></span></div>
-    <div class="countdown-box">⏰ Tax Extension Deadline: <span id="extensionCountdown"></span></div>
+  <div class="faq-box">
+    <h4>Why E-File?</h4>
+    <ul>
+      <li>✅ IRS-authorized and secure</li>
+      <li>✅ Available nationwide + U.S. territories</li>
+      <li>✅ Refunds processed faster via direct deposit</li>
+      <li>✅ Step-by-step guidance for first-timers</li>
+    </ul>
+  </div>
 
-    <!-- TRUST BADGES -->
-    <div style="margin-top:30px; display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
-      <div class="hero-badge" style="background:#fff;color:#000;padding:10px 15px;border-radius:5px;font-size:0.9rem;">✅ IRS-Authorized</div>
-      <div class="hero-badge" style="background:#fff;color:#000;padding:10px 15px;border-radius:5px;font-size:0.9rem;">✅ Secure & Encrypted</div>
-      <div class="hero-badge" style="background:#fff;color:#000;padding:10px 15px;border-radius:5px;font-size:0.9rem;">✅ Refunds Fast</div>
-      <div class="hero-badge" style="background:#fff;color:#000;padding:10px 15px;border-radius:5px;font-size:0.9rem;">✅ Nationwide Coverage</div>
-    </div>
+  <p style="text-align:center;">
+    <a href="#" class="btn-cta">Start Your E-File Now →</a>
+  </p>
+</section>
 
-    <!-- HERO IMAGE -->
-    <img src="https://i.imgur.com/lrB6JpK.png" alt="Refund Graphic">
-  </div>
-</header>
-
-<!-- INTERACTIVE SECTION -->
-<section>
-  <h2>Get Started
-
-With Your E-File</h2>
-
-<!-- ZIP Lookup -->
-<div class="lookup-widget">
-  <p>Enter your ZIP code:</p>
-  <input type="text" id="zipSearch" placeholder="e.g. 19138">
-  <button onclick="checkZip()">Check</button>
-  <div id="zipMessage"></div>
-</div>
-
-<!-- State/Territory Lookup -->
-<div class="lookup-widget">
-  <p>Or enter your state/territory:</p>
-  <input type="text" id="stateSearch" placeholder="e.g. Pennsylvania, Puerto Rico">
-  <button onclick="checkState()">Check</button>
-  <div id="stateMessage"></div>
-</div>
-
-<!-- City Lookup -->
-<div class="lookup-widget">
-  <p>Or enter your city:</p>
-  <input type="text" id="citySearch" placeholder="e.g. Philadelphia">
-  <button onclick="checkCity()">Check</button>
-  <div id="cityMessage"></div>
-</div>
-
-<!-- Area Code Lookup -->
-<div class="lookup-widget">
-  <p>Or enter your area code:</p>
-  <input type="text" id="areaCodeSearch" placeholder="e.g. 215">
-  <button onclick="checkAreaCode()">Check</button>
-  <div id="areaCodeMessage"></div>
-</div>
-
-<!-- Refund Estimator -->
-<div class="refund-box">
-  <h4>Estimate Your Refund</h4>
-  <input type="number" id="income" placeholder="Annual income ($)">
-  <input type="number" id="withheld" placeholder="Federal tax withheld ($)">
-  <button onclick="estimateRefund()">Estimate</button>
-  <div id="refundResult"></div>
-</div>
-
-<!-- Daily Tip -->
-<div class="countdown-box" style="background:#ffeb3b;color:#000;">
-  💡 Daily Tip: <span id="dailyTip"></span>
-</div>
-
-<!-- FAQ / Trust -->
-<div class="faq-box">
-  <h4>Why E-File?</h4>
-  <ul>
-    <li>✅ IRS-authorized and secure</li>
-    <li>✅ Available nationwide + U.S. territories</li>
-    <li>✅ Refunds processed faster via direct deposit</li>
-    <li>✅ Step-by-step guidance for first-timers</li>
-  </ul>
-</div>
-
-<p style="text-align:center;">
-  <a href="https://bit.ly/3QbSqVG" class="btn-cta" rel="sponsored">Start Your E-File Now →</a>
-</p>
-
-<!-- FOOTER -->
 <footer>
-  <p>Trusted by millions of Americans. Secure, fast, and available nationwide.</p>
-  <p>&copy; 2026 efilefast.com</p>
+  <p>Trusted by millions of Americans. Secure, fast, and available nationwide.</p>
+  <p>&copy; 2026 efilefast.com</p>
 </footer>
 
-<!-- STICKY CTA -->
-<a href="https://bit.ly/3QbSqVG" rel="sponsored" id="stickyCTA" class="btn-cta">Start E-File Now →</a>
+<a href="#" id="stickyCTA" class="btn-cta">Start E-File Now →</a>
 
-<!-- SCRIPTS -->
 <script>
 // Central E-file link
-const EFILE_LINK = "https://bit.ly/3QbSqVG";
+const EFILE_LINK = "#";
 
-// COUNTDOWNS
-function updateCountdown(elementId, deadlineDate) {
-  const now = new Date().getTime();
-  const diff = deadlineDate - now;
-  if(diff <= 0){
-    document.getElementById(elementId).innerHTML = "Deadline passed";
-    return;
-  }
-  const days = Math.floor(diff / (1000*60*60*24));
-  const hours = Math.floor((diff / (1000*60*60)) % 24);
-  const minutes = Math.floor((diff / (1000*60)) % 60);
-  document.getElementById(elementId).innerHTML = `${days}d ${hours}h ${minutes}m`;
-}
-const regularDeadline = new Date("April 15, 2026 23:59:59").getTime();
-const extensionDeadline = new Date("October 15, 2026 23:59:59").getTime();
-setInterval(() => {
-  updateCountdown("regularCountdown", regularDeadline);
-  updateCountdown("extensionCountdown", extensionDeadline);
-}, 1000);
-updateCountdown("regularCountdown", regularDeadline);
-updateCountdown("extensionCountdown", extensionDeadline);
+// Competitor array for dynamic mentions
+const competitors = ["TurboTax", "H&R Block", "TaxAct"];
 
-// Daily Tips Array
-const tips = [
-  "Double-check your deductions to maximize your refund.",
-  "File early to avoid last-minute IRS delays.",
-  "Direct deposit is the fastest way to get your refund.",
-  "Keep copies of your W-2s and 1099s for your records.",
-  "Review your previous year’s return for missed deductions.",
-  "Use accurate personal info to prevent processing errors."
-];
-function setDailyTip() {
-  const today = new Date();
-  const index = today.getDate() % tips.length;
-  document.getElementById("dailyTip").textContent = tips[index];
+// Helper function to insert competitor mentions
+function competitorMessage(action){
+  return `✅ ${action} — a fast, secure alternative to ${competitors.join(", ")}.`;
 }
-setDailyTip();
+
+// Update messages dynamically with competitor mentions
+function updateMessageWithCompetitor(msgElement, location){
+  msgElement.innerHTML = competitorMessage(`E-filing is available in <strong>${location}</strong>`);
+}
 
 // ZIP Validator
 function isValidZip(zip){ return /^\d{5}(-\d{4})?$/.test(zip); }
 function checkZip(){
-  const input=document.getElementById("zipSearch").value.trim();
-  const msg=document.getElementById("zipMessage");
-  if(!input){ msg.textContent="Please enter a ZIP code."; return; }
-  if(isValidZip(input)){
-    msg.innerHTML=`✅ E-filing is available in <strong>${input}</strong>.
-    <a href="${EFILE_LINK}" rel="sponsored">Start now →</a>`;
-  } else { msg.textContent="Please enter a valid ZIP code."; }
+  const input=document.getElementById("zipSearch").value.trim();
+  const msg=document.getElementById("zipMessage");
+  if(!input){ msg.textContent="Please enter a ZIP code."; return; }
+  if(isValidZip(input)){
+    updateMessageWithCompetitor(msg, input);
+  } else { msg.textContent="Please enter a valid ZIP code."; }
 }
 
-// US States + Territories
-const supportedStates=[
-  "alabama","alaska","arizona","arkansas","california","colorado","connecticut",
-  "delaware","florida","georgia","hawaii","idaho","illinois","indiana","iowa",
-  "kansas","kentucky","louisiana","maine","maryland","massachusetts","michigan",
-  "minnesota","mississippi","missouri","montana","nebraska","nevada",
-  "new hampshire","new jersey","new mexico","new york","north carolina",
-  "north dakota","ohio","oklahoma","oregon","pennsylvania","rhode island",
-  "south carolina","south dakota","tennessee","texas","utah","vermont",
-  "virginia","washington","west virginia","wisconsin","wyoming",
-  "puerto rico","guam","u.s. virgin islands","american samoa","northern mariana islands"
-];
+// State Lookup
 function checkState(){
-  const input=document.getElementById("stateSearch").value.trim().toLowerCase();
-  const msg=document.getElementById("stateMessage");
-  if(!input){ msg.textContent="Please enter a state or territory."; return; }
-  const found=supportedStates.includes(input);
-  msg.innerHTML=found?`✅ Supported in <strong>${input.charAt(0).toUpperCase()+input.slice(1)}</strong>.
-  <a href="${EFILE_LINK}" rel="sponsored">Start now →</a>`:
-  `✅ E-filing is available nationwide — including your location.
-  <a href="${EFILE_LINK}" rel="sponsored">Start now →</a>`;
+  const input=document.getElementById("stateSearch").value.trim();
+  const msg=document.getElementById("stateMessage");
+  if(!input){ msg.textContent="Please enter a state or territory."; return; }
+  updateMessageWithCompetitor(msg, input);
 }
 
 // City Lookup
-const supportedCities=["philadelphia","new york","los angeles","chicago","houston","phoenix","san diego","dallas","toronto","vancouver","montreal"];
 function checkCity(){
-  const input=document.getElementById("citySearch").value.trim().toLowerCase();
-  const msg=document.getElementById("cityMessage");
-  if(!input){ msg.textContent="Please enter a city."; return; }
-  const found=supportedCities.includes(input);
-  msg.innerHTML=found?`✅ E-filing is available in <strong>${input.charAt(0).toUpperCase()+input.slice(1)}</strong>.
-  <a href="${EFILE_LINK}" rel="sponsored">Start now →</a>`:
-  `✅ E-filing is likely available in ${input} — try filing to confirm.`;
+  const input=document.getElementById("citySearch").value.trim();
+  const msg=document.getElementById("cityMessage");
+  if(!input){ msg.textContent="Please enter a city."; return; }
+  updateMessageWithCompetitor(msg, input);
 }
 
-// Area Codes
-const supportedAreaCodes=["215","267","610","412","212","646","347","917","310","424","312","814"];
+// Area Code Lookup
 function checkAreaCode(){
-  const input=document.getElementById("areaCodeSearch").value.trim();
-  const msg=document.getElementById("areaCodeMessage");
-  if(!input){ msg.textContent="Please enter an area code."; return; }
-  const found=supportedAreaCodes.includes(input);
-  msg.innerHTML=found?`✅ E-filing is available in <strong>${input}</strong> area.
-  <a href="${EFILE_LINK}" rel="sponsored">Start now →</a>`:
-  `✅ Coverage likely available — try filing or check a nearby area.`;
+  const input=document.getElementById("areaCodeSearch").value.trim();
+  const msg=document.getElementById("areaCodeMessage");
+  if(!input){ msg.textContent="Please enter an area code."; return; }
+  updateMessageWithCompetitor(msg, input);
 }
 
 // Refund Estimator
 function estimateRefund(){
-  const income=parseFloat(document.getElementById("income").value);
-  const withheld=parseFloat(document.getElementById("withheld").value);
-  const result=document.getElementById("refundResult");
-  if(!income||!withheld){ result.textContent="Enter valid numbers."; return; }
-  const estimatedTax=income*0.12; // Example simple tax
-  const refund=withheld-estimatedTax;
-  if(refund>0){ result.innerHTML=`💰 Estimated refund: <strong>$${refund.toFixed(2)}</strong><br>
-  <a href="${EFILE_LINK}" rel="sponsored">Claim it now →</a>`; }
-  else{ result.innerHTML=`You may owe taxes, but you can still file quickly.<br>
-  <a href="${EFILE_LINK}" rel="sponsored">File now →</a>`; }
+  const income=parseFloat(document.getElementById("income").value);
+  const withheld=parseFloat(document.getElementById("withheld").value);
+  const result=document.getElementById("refundResult");
+  if(!income||!withheld){ result.textContent="Enter valid numbers."; return; }
+  const estimatedTax=income*0.12;
+  const refund=withheld-estimatedTax;
+  if(refund>0){ 
+    result.innerHTML=`💰 Estimated refund: <strong>$${refund.toFixed(2)}</strong><br>${competitorMessage("Claim it now")}`;
+  } else{ 
+    result.innerHTML=`You may owe taxes, but you can still file quickly.<br>${competitorMessage("File now")}`;
+  }
 }
 
-// Auto-detect state
+// Daily Tips
+const tips = [
+  "Double-check your deductions to maximize your refund.",
+  "File early to avoid last-minute IRS delays.",
+  "Direct deposit is the fastest way to get your refund.",
+  "Keep copies of your W-2s and 1099s for your records.",
+  "Review your previous year’s return for missed deductions.",
+  "Use accurate personal info to prevent processing errors."
+];
+function setDailyTip() {
+  const today = new Date();
+  const index = today.getDate() % tips.length;
+  document.getElementById("dailyTip").textContent = tips[index];
+}
+setDailyTip();
+
+// Countdown timers
+function updateCountdown(elementId, deadlineDate) {
+  const now = new Date().getTime();
+  const diff = deadlineDate - now;
+  if(diff <= 0){ document.getElementById(elementId).innerHTML = "Deadline passed"; return; }
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff / (1000*60*60)) % 24);
+  const minutes = Math.floor((diff / (1000*60)) % 60);
+  document.getElementById(elementId).innerHTML = `${days}d ${hours}h ${minutes}m`;
+}
+const regularDeadline = new Date("April 15, 2026 23:59:59").getTime();
+const extensionDeadline = new Date("October 15, 2026 23:59:59").getTime();
+setInterval(() => {
+  updateCountdown("regularCountdown", regularDeadline);
+  updateCountdown("extensionCountdown", extensionDeadline);
+}, 1000);
+updateCountdown("regularCountdown", regularDeadline);
+updateCountdown("extensionCountdown", extensionDeadline);
+
+// Auto-detect state (optional)
 fetch("https://ipapi.co/json/").then(res=>res.json()).then(data=>{
-  if(data.region){
-    document.getElementById("stateSearch").value=data.region;
-    const msg=document.getElementById("stateMessage");
-    msg.innerHTML=`📍 Detected location: <strong>${data.region}</strong><br>
-    ✅ E-filing is available in your area <a href="${EFILE_LINK}" rel="sponsored">Start now →</a>`;
-  }
+  if(data.region){
+    document.getElementById("stateSearch").value=data.region;
+    const msg=document.getElementById("stateMessage");
+    msg.innerHTML=`📍 Detected location: <strong>${data.region}</strong><br>${competitorMessage("E-filing is available in your area")}`;
+  }
 });
 
-// Scroll progress
+// Scroll progress bar
 window.onscroll = function() {
-  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = (scrollTop / scrollHeight) * 100;
-  document.getElementById("progressBar").style.width = scrolled + "%";
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (scrollTop / scrollHeight) * 100;
+  document.getElementById("progressBar").style.width = scrolled + "%";
 };
 </script>
+
 </body>
 </html>
