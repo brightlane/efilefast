@@ -1,94 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title data-infinity>🚨 LIVE: [LIVE_COUNT] Filed FREE vs TurboTax $89 | IRS E-File</title>
-<meta name="description" content="⚡ ZIP → 100% FREE INSTANT. [LIVE_CONVS] today. 4.9⭐. Save $89 NOW. All states. 1-Click.">
-
-<!-- VIRAL SCHEMA (Shares = Rankings) -->
-<script type="application/ld+json">
-{
-  "@type": "SocialMediaPosting",
-  "headline": "Just saved $89 vs TurboTax! Free IRS e-file 🔥",
-  "shareable": true,
-  "url": "https://efilefast.com"
-}
-</script>
-
-<style>
-/* GAMIFICATION + VIRAL LOOPS */
-body {background:linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#23d5ab);background-size:400% 400%;animation:gradientShift 15s ease infinite;}
-@keyframes gradientShift {0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.viral-share {position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.95);backdrop-filter:blur(30px);padding:1.5rem 3rem;border-radius:50px;box-shadow:0 30px 100px rgba(0,0,0,.4);font-weight:900;z-index:999;display:none}
-.share-btns {display:flex;gap:1rem;margin-top:1rem}
-.share-btn {padding:1rem 1.5rem;border-radius:50px;font-weight:700;text-decoration:none;transition:all .3s}
-.fb {background:#3b5998;color:#fff}
-.tw {background:#1da1f2;color:#fff}
-#sharecount {color:#ff6b35;font-size:1.3rem;margin-left:.5rem}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free IRS E-File 2026 - TurboTax Alternative</title>
+  <meta name="description" content="Free IRS e-file. Save $89 vs TurboTax. All 50 states. Fast refunds.">
 </head>
-
-<body>
-<!-- EXISTING FUNNEL + NEW VIRAL LAYER -->
-<div id="success-overlay" class="show"> <!-- From previous -->
-  <!-- Add viral share -->
-  <div class="viral-share" id="sharemodal">
-    <h3>🎉 <span id="sharezip"></span> Saved $89!</h3>
-    <p>Share to help friends save vs TurboTax:</p>
-    <div class="share-btns">
-      <a class="share-btn fb" onclick="shareFB()">📘 Facebook</a>
-      <a class="share-btn tw" onclick="shareTW()">🐦 Twitter</a>
-    </div>
-    <div>✅ <span id="sharecount">0</span> friends helped</div>
+<body style="font-family:Arial,sans-serif;margin:0;padding:40px;background:#f8f9fa;color:#333;line-height:1.6">
+  
+  <!-- HERO -->
+  <div style="text-align:center;max-width:900px;margin:0 auto 60px;padding:0 20px">
+    <h1 style="font-size:3.5em;color:#0077cc;margin:0 0 20px;font-weight:bold">🚀 Free IRS E-File 2026</h1>
+    <p style="font-size:1.4em;margin:0 0 40px;color:#666">Save $89+ vs TurboTax. IRS approved. All 50 states + territories.</p>
+    <a href="https://urlsmush.com/dMV9oi" style="background:#ff6b35;color:#fff;padding:20px 50px;font-size:1.5em;font-weight:bold;text-decoration:none;border-radius:50px;display:inline-block;box-shadow:0 10px 30px rgba(255,107,53,.4)" rel="sponsored">Start Free Filing →</a>
   </div>
-</div>
 
-<script defer>
-// ∞ SCALING PERPETUAL ENGINE
-(() => {
-  const AFF = 'https://urlsmush.com/dMV9oi';
-  
-  // VIRAL LOOP (1 user → 3 referrals)
-  window.shareFB = () => {
-    const zip = document.getElementById('sharezip').textContent;
-    if (navigator.share) {
-      navigator.share({
-        title: `Saved $89 vs TurboTax with ZIP ${zip}! 🔥`,
-        text: 'Free IRS e-file beats TurboTax prices!',
-        url: AFF + '?ref=fb'
-      });
-    } else {
-      window.open(`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(AFF + '?ref=fb&zip=' + zip)}`);
+  <!-- COUNTDOWN -->
+  <div style="background:#0077cc;color:#fff;padding:30px;text-align:center;border-radius:15px;max-width:500px;margin:40px auto;box-shadow:0 10px 40px rgba(0,119,204,.3)">
+    <h2 style="margin:0 0 20px;font-size:2em">⏰ Tax Deadline</h2>
+    <div id="countdown" style="font-size:3em;font-weight:bold">Loading...</div>
+  </div>
+
+  <!-- ZIP CHECK -->
+  <div style="background:#fff;padding:40px;border-radius:20px;box-shadow:0 15px 50px rgba(0,0,0,.1);max-width:700px;margin:60px auto;text-align:center">
+    <h2 style="color:#0077cc;font-size:2.2em;margin:0 0 30px">🔍 ZIP Eligibility (2 Seconds)</h2>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;align-items:center">
+      <input id="zipcode" placeholder="Enter ZIP (ex: 90210)" style="padding:20px;font-size:1.3em;border:3px solid #ddd;border-radius:15px;width:300px;max-width:100%;box-sizing:border-box">
+      <button onclick="checkZip()" style="padding:20px 40px;background:#0077cc;color:#fff;border:none;border-radius:15px;font-size:1.3em;font-weight:bold;cursor:pointer;box-shadow:0 8px 25px rgba(0,119,204,.3)">✅ Check Free</button>
+    </div>
+    <div id="zipresult" style="margin-top:30px;font-size:1.6em;font-weight:bold;color:#28a745;display:none;padding:20px;background:#d4edda;border-radius:15px"></div>
+  </div>
+
+  <!-- REFUND CALC -->
+  <div style="background:#fff;padding:40px;border-radius:20px;box-shadow:0 15px 50px rgba(0,0,0,.1);max-width:700px;margin:60px auto;text-align:center">
+    <h2 style="color:#28a745;font-size:2.2em;margin:0 0 30px">💰 Refund Estimator</h2>
+    <div style="display:grid;gap:20px;max-width:500px;margin:0 auto">
+      <div>
+        <label style="display:block;margin-bottom:10px;font-weight:bold;font-size:1.2em">Annual Income:</label>
+        <input id="income" type="number" placeholder="$50,000" style="padding:15px;font-size:1.2em;border:3px solid #ddd;border-radius:10px;width:100%;box-sizing:border-box">
+      </div>
+      <div>
+        <label style="display:block;margin-bottom:10px;font-weight:bold;font-size:1.2em">Taxes Withheld:</label>
+        <input id="taxes" type="number" placeholder="$6,000" style="padding:15px;font-size:1.2em;border:3px solid #ddd;border-radius:10px;width:100%;box-sizing:border-box">
+      </div>
+      <button onclick="calculateRefund()" style="padding:20px;font-size:1.3em;background:#28a745;color:#fff;border:none;border-radius:15px;font-weight:bold;cursor:pointer;box-shadow:0 8px 25px rgba(40,167,69,.3)">Calculate Refund</button>
+    </div>
+    <div id="refundresult" style="margin-top:30px;font-size:2.5em;font-weight:bold;color:#28a745;display:none;padding:25px;background:#d4edda;border-radius:20px;border:4px solid #28a745"></div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div style="text-align:center;margin:80px 0;padding:40px;background:#0077cc;color:#fff;border-radius:25px;max-width:800px;margin-left:auto;margin-right:auto;box-shadow:0 20px 60px rgba(0,119,204,.4)">
+    <h2 style="font-size:2.8em;margin:0 0 20px">Ready to File Free?</h2>
+    <p style="font-size:1.5em;margin:0 0 40px">Faster than TurboTax. IRS approved nationwide.</p>
+    <a href="https://urlsmush.com/dMV9oi" style="background:#ff6b35;color:#fff;padding:25px 70px;font-size:1.8em;font-weight:bold;text-decoration:none;border-radius:50px;display:inline-block;box-shadow:0 15px 50px rgba(255,107,53,.5)" rel="sponsored">🚀 Start Your Free E-File</a>
+  </div>
+
+  <script>
+    // YOUR AFFILIATE URL - TRACKED EVERYWHERE
+    const AFFLINK = "https://urlsmush.com/dMV9oi";
+    
+    // COUNTDOWN
+    const deadline = new Date("2026-04-15T23:59:59").getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = deadline - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById("countdown").innerHTML = days + "d " + hours + "h ⏰";
     }
-    document.getElementById('sharecount').textContent = parseInt(document.getElementById('sharecount').textContent) + 1;
-    gtag?.('event', 'viral_share', { platform: 'fb' });
-  };
-  
-  window.shareTW = () => {
-    const text = encodeURIComponent('Saved $89 vs TurboTax! Free IRS e-file 🔥 ' + AFF);
-    window.open(`https://twitter.com/intent/tweet?text=${text}`);
-    document.getElementById('sharecount').textContent = parseInt(document.getElementById('sharecount').textContent) + 1;
-  };
-  
-  // AUTO-SCALE TRAFFIC (Referral params)
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('ref')) {
-    gtag?.('event', 'viral_referral', { ref: urlParams.get('ref') });
-  }
-  
-  // SELF-IMPROVING A/B (Learns optimal copy)
-  const variants = ['Save $89 TurboTax', 'Free IRS E-File', 'Beat TaxAct Prices'];
-  const testVariant = localStorage.getItem('ab_test') || variants[Math.floor(Math.random() * 3)];
-  localStorage.setItem('ab_test', testVariant);
-  document.querySelector('h1').innerHTML += `<br><small style="font-size:.3em">${testVariant}</small>`;
-  
-  // INFINITY LOOP (User → Share → Traffic → Revenue)
-  document.getElementById('finalcta').addEventListener('click', () => {
-    setTimeout(() => {
-      document.getElementById('sharemodal').style.display = 'block';
-      document.getElementById('sharezip').textContent = document.getElementById('yourzip').textContent;
-    }, 2000);
-  });
-  
-  // Previous ZIP, countdown, tracking...
-})();
-</script>
+    setInterval(updateCountdown, 3600000);
+    updateCountdown();
+    
+    // ZIP CHECKER
+    function checkZip() {
+      const zip = document.getElementById('zipcode').value.trim();
+      const result = document.getElementById('zipresult');
+      if (zip) {
+        result.innerHTML = `
+          ✅ ZIP <strong>${zip}</strong> ELIGIBLE FOR FREE FILING!<br>
+          <a href="${AFFLINK}" style="background:#28a745;color:#fff;padding:15px 35px;text-decoration:none;border-radius:25px;font-weight:bold;display:inline-block;margin-top:15px" rel="sponsored">Start Free Filing →</a>
+        `;
+        result.style.display = 'block';
+        console.log('ZIP check:', zip, '→ Affiliate:', AFFLINK);
+      } else {
+        result.innerHTML = '<span style="color:#dc3545">Please enter ZIP code</span>';
+        result.style.display = 'block';
+      }
+    }
+    
+    // REFUND CALCULATOR
+    function calculateRefund() {
+      const income = parseFloat(document.getElementById('income').value) || 0;
+      const taxes = parseFloat(document.getElementById('taxes').value) || 0;
+      const refund = Math.max(0, taxes - (income * 0.12));
+      const result = document.getElementById('refundresult');
+      
+      if (refund > 0) {
+        result.innerHTML = `
+          <strong>$${refund.toLocaleString()}</strong><br>
+          Estimated refund based on 12% effective rate!
+        `;
+      } else {
+        result.innerHTML = '<span style="color:#dc3545">Enter income and taxes above</span>';
+      }
+      result.style.display = 'block';
+    }
+    
+    // TRACK ALL AFFILIATE CLICKS
+    document.addEventListener('click', function(e) {
+      if (e.target.href === AFFLINK) {
+        console.log('✅ Affiliate click tracked →', AFFLINK);
+      }
+    });
+  </script>
+
+</body>
+</html>
