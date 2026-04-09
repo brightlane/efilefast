@@ -173,3 +173,75 @@ function calcRefund(){
 
 </body>
 </html>
+<!-- ============================= -->
+<!-- Brightlane SEO Cross-Link Hub -->
+<!-- ============================= -->
+
+<section style="padding:30px; text-align:center; background:#f5f7fa; border-top:2px solid #ddd;">
+
+  <h3>Brightlane Tax Filing Hub</h3>
+
+  <p style="font-size:14px; color:#555; max-width:800px; margin:0 auto 20px;">
+    Explore simple guides to file taxes online, IRS e-file instructions, and free tax tools for the 2026 tax season.
+  </p>
+
+  <!-- ===================== -->
+  <!-- MAIN HUB -->
+  <!-- ===================== -->
+  <h4>🏠 Main Hub</h4>
+  <a href="/index.html" style="display:inline-block; margin:5px; padding:10px 15px; background:#e53e3e; color:#fff; border-radius:25px; text-decoration:none;">
+    Tax Filing Hub
+  </a>
+
+  <!-- ===================== -->
+  <!-- TAX FILING GUIDES -->
+  <!-- ===================== -->
+  <h4 style="margin-top:20px;">📁 Tax Filing Guides</h4>
+
+  <a href="/DoMyTaxesEasilyOnline.html" style="display:inline-block; margin:5px; padding:10px 15px; background:#c53030; color:#fff; border-radius:25px; text-decoration:none;">
+    File Taxes Online Fast
+  </a>
+
+  <a href="/TaxesDoneEasilyOnline.html" style="display:inline-block; margin:5px; padding:10px 15px; background:#e53e3e; color:#fff; border-radius:25px; text-decoration:none;">
+    Simple Tax Filing Guide
+  </a>
+
+  <a href="/TaxeesEasilyDoneOnline.html" style="display:inline-block; margin:5px; padding:10px 15px; background:#c53030; color:#fff; border-radius:25px; text-decoration:none;">
+    IRS E-File Guide
+  </a>
+
+  <a href="/filetaxeonline/" style="display:inline-block; margin:5px; padding:10px 15px; background:#e53e3e; color:#fff; border-radius:25px; text-decoration:none;">
+    Start Filing Now
+  </a>
+
+  <!-- ===================== -->
+  <!-- FREE TAX TOOLS -->
+  <!-- ===================== -->
+  <h4 style="margin-top:20px;">🆓 Free Tax Tools</h4>
+
+  <a href="/free-turbotax-2026/" style="display:inline-block; margin:5px; padding:10px 15px; background:#2b6cb0; color:#fff; border-radius:25px; text-decoration:none;">
+    Free TurboTax Alternative
+  </a>
+
+  <a href="/free-hrblock-2026/" style="display:inline-block; margin:5px; padding:10px 15px; background:#2f855a; color:#fff; text-decoration:none; border-radius:25px;">
+    Free H&R Block Guide
+  </a>
+
+  <!-- ===================== -->
+  <!-- TRUST + SEO SIGNAL -->
+  <!-- ===================== -->
+
+  <p style="font-size:12px; color:#777; margin-top:25px; max-width:800px; margin-left:auto; margin-right:auto;">
+    Updated for the 2026 tax season. This site provides informational tax filing guides and comparisons for educational purposes.
+  </p>
+
+  <p style="font-size:11px; color:#999; margin-top:10px;">
+    <a href="/sitemap.xml" style="color:#666;">Sitemap</a>
+  </p>
+
+</section>
+
+<!-- Back to Hub Link -->
+<p style="text-align:center; font-size:12px; margin-top:15px;">
+  ← Back to <a href="/index.html">Tax Filing Hub</a>
+</p>
