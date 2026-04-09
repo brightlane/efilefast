@@ -59,22 +59,82 @@
   </script>
 
   <style>
-    body {font-family:Arial,sans-serif;margin:0;background:linear-gradient(135deg,#3a7bd5,#3a6073,#000);color:#fff;display:flex;flex-direction:column;align-items:center;min-height:100vh;}
-    h1,h2,h3 {margin:0 0 15px;}
-    h1 {font-size:clamp(3rem,7vw,5rem);text-align:center;}
-    h2 {font-size:clamp(1.8rem,4vw,2.5rem);}
-    .cta-btn {background:linear-gradient(135deg,#ff6b35,#f7931e,#ff4757);color:#fff;padding:25px 50px;font-size:2rem;font-weight:900;border-radius:50px;text-decoration:none;display:inline-block;margin:30px 0;}
-    .testimonials, .proof-box {background:rgba(255,255,255,.15);backdrop-filter:blur(20px);padding:25px 40px;border-radius:30px;margin:25px 0;text-align:center;color:#fff;}
-    input, button {font-size:1rem;}
-    ul, ol {margin:15px 0 25px 20px;}
-    a {color:#ffcc00;text-decoration:none;}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #3a7bd5, #3a6073, #000);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    h1, h2, h3 {
+      margin: 0 0 15px;
+    }
+    h1 {
+      font-size: clamp(3rem, 7vw, 5rem);
+      text-align: center;
+    }
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+    .cta-btn {
+      background: linear-gradient(135deg, #ff6b35, #f7931e, #ff4757);
+      color: #fff;
+      padding: 25px 50px;
+      font-size: 2rem;
+      font-weight: 900;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 30px 0;
+    }
+    .testimonials, .proof-box {
+      background: rgba(255, 255, 255, .15);
+      backdrop-filter: blur(20px);
+      padding: 25px 40px;
+      border-radius: 30px;
+      margin: 25px 0;
+      text-align: center;
+      color: #fff;
+    }
+    input, button {
+      font-size: 1rem;
+    }
+    ul, ol {
+      margin: 15px 0 25px 20px;
+    }
+    a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 600px) {
+      .cta-btn {
+        font-size: 1.8rem;
+        padding: 20px 40px;
+      }
+      input, button {
+        padding: 10px 15px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Accessibility improvements */
+    input, button {
+      width: 100%;
+    }
   </style>
 </head>
 <body>
 
   <!-- HERO -->
   <h1>🚨 Free TurboTax 2026 Alternative</h1>
-  <p style="text-align:center;font-size:1.5rem;color:#ffcc00;">Save $89 vs TurboTax & H&R Block – File 100% FREE in 2026</p>
+  <p style="text-align: center; font-size: 1.5rem; color: #ffcc00;">Save $89 vs TurboTax & H&R Block – File 100% FREE in 2026</p>
 
   <!-- BENEFITS -->
   <h2>Why Choose Our Free Filing?</h2>
@@ -104,21 +164,21 @@
   </div>
 
   <!-- CTA -->
-  <a href="https://urlsmush.com/dMV9oi" class="cta-btn">🚀 Start Free Filing 2026</a>
+  <a href="https://urlsmush.com/dMV9oi" class="cta-btn" target="_blank" rel="noopener noreferrer">🚀 Start Free Filing 2026</a>
 
   <!-- ZIP CHECK -->
-  <div style="margin:30px 0;text-align:center;">
-    <input id="zipquick" placeholder="Enter ZIP to check free filing" maxlength="10" style="padding:15px 20px;border-radius:25px;margin-right:10px;">
-    <button onclick="quickzip()" style="padding:15px 25px;border-radius:25px;background:#28a745;color:#fff;border:none;font-weight:bold;cursor:pointer;">✅ Check ZIP</button>
+  <div style="margin: 30px 0; text-align: center;">
+    <input id="zipquick" placeholder="Enter ZIP to check free filing" maxlength="9" aria-label="Enter ZIP code to check eligibility for free filing" style="padding: 15px 20px; border-radius: 25px; margin-right: 10px;">
+    <button onclick="quickzip()" aria-label="Click to check ZIP code for eligibility" title="Check ZIP eligibility" style="padding: 15px 25px; border-radius: 25px; background: #28a745; color: #fff; border: none; font-weight: bold; cursor: pointer;">✅ Check ZIP</button>
   </div>
 
   <!-- REFUND CALCULATOR -->
-  <div style="margin:20px 0;text-align:center;">
+  <div style="margin: 20px 0; text-align: center;">
     <h3>💰 Estimate Your Refund</h3>
-    <input id="quickincome" type="number" placeholder="Income" style="padding:10px 15px;border-radius:8px;margin:5px;">
-    <input id="quicktaxes" type="number" placeholder="Taxes Paid" style="padding:10px 15px;border-radius:8px;margin:5px;">
-    <button onclick="quickcalc()" style="padding:10px 20px;border-radius:8px;background:#28a745;color:#fff;border:none;font-weight:bold;">Calculate Refund</button>
-    <div id="quickrefund" style="margin-top:10px;font-size:1.5rem;font-weight:900;color:#28a745;"></div>
+    <input id="quickincome" type="number" placeholder="Income" style="padding: 10px 15px; border-radius: 8px; margin: 5px;">
+    <input id="quicktaxes" type="number" placeholder="Taxes Paid" style="padding: 10px 15px; border-radius: 8px; margin: 5px;">
+    <button onclick="quickcalc()" style="padding: 10px 20px; border-radius: 8px; background: #28a745; color: #fff; border: none; font-weight: bold;">Calculate Refund</button>
+    <div id="quickrefund" style="margin-top: 10px; font-size: 1.5rem; font-weight: 900; color: #28a745;"></div>
   </div>
 
   <!-- FAQ -->
@@ -135,17 +195,36 @@
   <!-- JS: ZIP CHECK + REFUND CALC -->
   <script>
   function quickzip() {
-    const zip = document.getElementById("zipquick").value.trim();
-    if (!zip || zip.length < 5) { alert("Please enter a valid ZIP code."); return; }
-    alert("🎉 ZIP eligible! You can file taxes free in 2026.");
+    const zipButton = document.querySelector('button');
+    const zipInput = document.getElementById("zipquick");
+    const loadingText = "Checking..."; // Text for loading state
+    zipButton.disabled = true;  // Disable the button to prevent multiple clicks
+    zipButton.textContent = loadingText;  // Update button text
+
+    const zip = zipInput.value.trim();
+    setTimeout(() => { // Simulate delay for loading state
+      if (!zip || zip.length < 5) {
+        alert("Please enter a valid ZIP code.");
+        zipButton.disabled = false;
+        zipButton.textContent = "✅ Check ZIP";
+        return;
+      }
+      alert("🎉 ZIP eligible! You can file taxes free in 2026.");
+      zipButton.disabled = false;
+      zipButton.textContent = "✅ Check ZIP";
+    }, 1500);  // Simulated delay (1.5 seconds)
   }
+
   function quickcalc() {
     const income = parseFloat(document.getElementById("quickincome").value);
     const taxesPaid = parseFloat(document.getElementById("quicktaxes").value);
     const refundBox = document.getElementById("quickrefund");
-    if(isNaN(income)||isNaN(taxesPaid)){refundBox.textContent="Enter valid numbers!"; return;}
-    let refund = Math.max(0,(income*0.12)-taxesPaid);
-    refundBox.textContent=`$${refund.toLocaleString()}`;
+    if (isNaN(income) || isNaN(taxesPaid)) {
+      refundBox.textContent = "Enter valid numbers!";
+      return;
+    }
+    let refund = Math.max(0, (income * 0.12) - taxesPaid);
+    refundBox.textContent = `$${refund.toLocaleString()}`;
   }
   </script>
 
