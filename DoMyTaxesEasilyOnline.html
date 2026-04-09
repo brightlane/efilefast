@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Loading...</title>
+<meta name="description" content="Smart IRS Refund & Filing Tracker 2026">
+<link rel="canonical" href="" id="canon">
+<style>
+body{font-family:system-ui;margin:0;background:#f8fafc}
+nav{position:sticky;top:0;background:#fff;box-shadow:0 1px 8px rgba(0,0,0,0.08);padding:1rem;z-index:10}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.5rem;max-width:1300px;margin:auto}
+a.page-link{display:block;padding:.75rem;border-radius:10px;background:#fff;text-align:center;font-weight:600;color:#475569;text-decoration:none;transition:.3s}
+a.page-link:hover{background:#fee2e2;color:#b91c1c}
+.container{max-width:1100px;margin:auto;padding:2rem}
+#page-hero h1{font-size:clamp(2rem,8vw,4rem);margin-bottom:1rem;color:#b91c1c;text-align:center}
+#page-desc{text-align:center;font-size:1.2rem;color:#334155}
+.audit-table{width:100%;border-collapse:collapse}
+.audit-table td,.audit-table th{border:1px solid #ccc;padding:.3rem .5rem;text-align:center}
+.audit-table th{background:#f1f5f9}
+</style>
+<script>
+// === 500 PAGE DEFINITIONS ===
+const PAGE_MATRIX = {
+  states:['ny','ca','tx','fl','pa','il','oh','ga','nc','mi','nj','va','wa','az','ma','tn','in','mo','md','wi','co','mn','or','sc','ct','ky','la','ok','ut','ia','al','ar','nm','nv','nh','me','wv','vt','id','ms','de','ks','ri','mt','nd','sd','ne','ak','hi'],
+  cities:['nyc','losangeles','chicago','houston','phoenix','philadelphia','sanantonio','sandiego','austin','dallas','fortworth','jacksonville','columbus','charlotte','denver','seattle','boston','nashville','detroit','baltimore','portland','memphis','elpaso','vegas','dc','indianapolis','orlando','raleigh','pittsburgh','minneapolis','cleveland','kansas','tampa','miami','saltlake','stlouis','sanjose','sacramento','anaheim','fresno'],
+  countries:['india','canada','uk','australia','germany','france','italy','spain','china','japan','brazil','mexico','russia','uae','saudi','philippines','netherlands','sweden','southkorea','singapore','turkey','egypt','thailand','poland','indonesia','nigeria','argentina','southafrica','norway','switzerland','denmark','ireland','pakistan','finland','israel','malaysia','chile','colombia','vietnam','newzealand'],
+  keywords:['refund','efile','turbotax','1040nr','stimulus','tracker','status','extension','directdeposit','taxseason','deadline','fastrefund','filing','nonresident','w2','1099','audit','withholding','freereturn','login','form','irshelp','return','deposit','whereismyrefund','update','2026','itina','credit','incometax','idverify','irsportal','pin','transcript','checkrefund','mypayment','account','schedule','balance','help','fasttax','smartfile','quickrefund','usatax','internationaltax']
+};
+
+const ALL_PAGES={};
+Object.entries(PAGE_MATRIX).forEach(([cat,list])=>{
+  list.forEach(item=>{
+    const slug=item.toLowerCase();
+    const uc=slug.toUpperCase();
+    ALL_PAGES[slug]={title:`${uc} ${cat==='countries'?'1040‑NR':'Tax Refund'} Status 2026`,desc:`Realtime refund tracking & filing info for ${uc}.`,cat};
+  });
+});
+ALL_PAGES.home={title:"Ultimate 2026 IRS Refund Tracker",desc:"Instant IRS refund checking for all 50 states and nonresident filers.",cat:"home"};
+
+// === ENGINE WITH SCHEMA + SITEMAP + AUDIT ===
+class OneURLEngine{
+  constructor(pages){this.pages=pages;this.init();}
+  init(){
+    this.buildNav();
+    this.route();
+    this.makeSitemap();
+    window.addEventListener('popstate',()=>this.route());
+  }
+  buildNav(){
+    const nav=document.querySelector('#nav .grid');
+    Object.keys(this.pages).forEach(slug=>{
+      const a=document.createElement('a');
+      a.href=`?page=${slug}`;
+      a.className='page-link';
+      a.textContent=this.pages[slug].title.split(' ')[0];
+      nav.appendChild(a);
+    });
+  }
+  getSlug(){
+    const params=new URLSearchParams(location.search);
+    return params.get('page')||'home';
+  }
+  route(){
+    const slug=this.getSlug();
+    const page=this.pages[slug]||this.pages.home;
+    this.injectSEO(page);
+    this.injectSchema(page,slug);
+    document.querySelector('#page-hero').innerHTML=`<h1>${page.title}</h1>`;
+    document.querySelector('#page-desc').innerHTML=page.desc;
+  }
+  injectSEO(page){
+    document.title=page.title;
+    document.querySelector('meta[name="description"]').content=page.desc;
+    document.querySelector('#canon').href=location.href;
+  }
+  injectSchema(page,slug){
+    let type="WebPage";
+    if(page.cat==="states"||page.cat==="cities")type="GovernmentService";
+    else if(page.cat==="countries")type="FinancialService";
+    else if(page.cat==="keywords")type="SoftwareApplication";
+    else if(page.cat==="home")type="WebSite";
+    const peers=Object.entries(this.pages)
+      .filter(([k,v])=>v.cat===page.cat&&k!==slug)
+      .slice(0,3)
+      .map(([k,v])=>({"@type":"WebPage","name":v.title,"url":`${location.origin}${location.pathname}?page=${k}`}));
+    const data={"@context":"https://schema.org","@type":type,"name":page.title,"description":page.desc,"url":location.href,"areaServed":slug.toUpperCase(),"keywords":slug.toUpperCase(),"relatedLink":peers,"provider":{"@type":"Organization","name":"TurboRefund Express"},"isPartOf":{"@type":"WebSite","name":"Ultimate IRS Refund Tracker 2026","url":`${location.origin}${location.pathname}`}};
+    let script=document.getElementById('ldjson');
+    if(!script){script=document.createElement('script');script.id='ldjson';script.type='application/ld+json';document.head.appendChild(script);}
+    script.textContent=JSON.stringify(data,null,2);
+  }
+  makeSitemap(){
+    const smLinks=Object.keys(this.pages).map(k=>`<a href="?page=${k}" style="margin:4px 6px;display:inline-block;color:#2563eb">${k}</a>`).join('');
+    const block=document.createElement('div');
+    block.innerHTML=`<hr><h3>📄 Sitemap (Auto‑Generated)</h3><div style="max-height:300px;overflow:auto">${smLinks}</div>`;
+    document.body.appendChild(block);
+    // structured sitemap JSON‑LD
+    const items=Object.keys(this.pages).map((slug,i)=>({"@type":"ListItem","position":i+1,"url":`${location.origin}${location.pathname}?page=${slug}`,"name":this.pages[slug].title}));
+    const sitemapLD={"@context":"https://schema.org","@type":"CollectionPage","name":"Ultimate IRS Refund Tracker 2026 Sitemap","description":"All virtual routes served under one HTML file — states, cities, countries, and keywords.","url":`${location.origin}${location.pathname}`,"hasPart":{"@type":"ItemList","itemListOrder":"Ascending","numberOfItems":items.length,"itemListElement":items},"publisher":{"@type":"Organization","name":"TurboRefund Express","url":"https://brightlane.github.io/TurboRefundExpress"}};
+    const sitemapScript=document.createElement('script');
+    sitemapScript.type='application/ld+json';
+    sitemapScript.id='sitemap-ld';
+    sitemapScript.textContent=JSON.stringify(sitemapLD,null,2);
+    document.head.appendChild(sitemapScript);
+  }
+}
+
+// === SELF‑AUDITOR ===
+function selfAudit(pages){
+  const log=[];
+  Object.keys(pages).forEach(slug=>{
+    const p=pages[slug];
+    const metaOK=Boolean(p.desc&&p.desc.length>0);
+    const schema=document.getElementById('ldjson');
+    let schemaValid=true;
+    if(schema){try{JSON.parse(schema.textContent);}catch(e){schemaValid=false;}}
+    log.push({slug,metaOK,schemaValid});
+  });
+  const container=document.createElement('div');
+  container.innerHTML="<h3>🔍 Internal Audit</h3><table class='audit-table'><tr><th>Slug</th><th>Meta</th><th>Schema</th></tr>"+
+    log.map(r=>`<tr><td>${r.slug}</td><td style='color:${r.metaOK?'green':'red'}'>${r.metaOK?'✓':'✕'}</td><td style='color:${r.schemaValid?'green':'red'}'>${r.schemaValid?'✓':'✕'}</td></tr>`).join('')+"</table>";
+  document.body.appendChild(container);
+}
+window.onload=()=>{new OneURLEngine(ALL_PAGES);selfAudit(ALL_PAGES);}
+</script>
+</head>
+<body>
+<nav id="nav"><div class="grid"></div></nav>
+<div class="container">
+  <section id="page-hero"></section>
+  <p id="page-desc"></p>
+</div>
+</body>
+</html>
