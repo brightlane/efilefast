@@ -2,17 +2,69 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Free Tax Filing 2026 • TurboTax Alternatives</title>
 <meta name="description" content="File taxes free or low-cost in 2026. Compare TurboTax alternatives like H&R Block, TaxAct, TaxSlayer, FreeTaxUSA, Cash App Taxes, Jackson Hewitt Online, eFile.com, Liberty Tax.">
 <meta name="keywords" content="TurboTax 2026,H&R Block 2026,TaxAct 2026,TaxSlayer 2026,FreeTaxUSA 2026,Cash App Taxes,Jackson Hewitt Online,eFile.com,Liberty Tax,free tax filing,IRS Free File,efile taxes 2026">
 <link rel="canonical" href="https://brightlane.github.io/efilefast/">
 <meta name="robots" content="index, follow">
+
+<!-- Open Graph Meta Tags for better social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Tax Filing 2026 • TurboTax Alternatives">
+<meta property="og:description" content="Compare the best free and low-cost tax filing options for 2026, including H&R Block, TaxAct, FreeTaxUSA, Cash App Taxes, and more.">
+<meta property="og:image" content="https://brightlane.github.io/efilefast/thumbnail.jpg"> <!-- Replace with your image -->
+<meta property="og:url" content="https://brightlane.github.io/efilefast/">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Tax Filing 2026 • TurboTax Alternatives">
+<meta name="twitter:description" content="Compare the best free and low-cost tax filing options for 2026, including H&R Block, TaxAct, FreeTaxUSA, Cash App Taxes, and more.">
+<meta name="twitter:image" content="https://brightlane.github.io/efilefast/thumbnail.jpg"> <!-- Replace with your image -->
+<meta name="twitter:url" content="https://brightlane.github.io/efilefast/">
+
 <link rel="preconnect" href="https://www.google.com">
 
 <!-- FAQ Schema -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the best alternatives to TurboTax in 2026?","acceptedAnswer":{"@type":"Answer","text":"Top alternatives include H&R Block, TaxAct, TaxSlayer, FreeTaxUSA, Cash App Taxes, Jackson Hewitt Online, eFile.com, and Liberty Tax."}},{"@type":"Question","name":"Can I file taxes for free instead of TurboTax or H&R Block?","acceptedAnswer":{"@type":"Answer","text":"Yes, IRS-approved software like FreeTaxUSA, Cash App Taxes, and H&R Block Free Online allow free federal e-file depending on income/ZIP."}},{"@type":"Question","name":"Which software is fastest and easiest?","acceptedAnswer":{"@type":"Answer","text":"Cash App Taxes and TaxSlayer are fast and mobile-friendly, H&R Block guides complex returns step-by-step."}},{"@type":"Question","name":"Are these alternatives available in all 50 states?","acceptedAnswer":{"@type":"Answer","text":"Most major alternatives support e-filing in all 50 states. Always check your ZIP code for eligibility."}}]}
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the best alternatives to TurboTax in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Top alternatives include H&R Block, TaxAct, TaxSlayer, FreeTaxUSA, Cash App Taxes, Jackson Hewitt Online, eFile.com, and Liberty Tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I file taxes for free instead of TurboTax or H&R Block?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, IRS-approved software like FreeTaxUSA, Cash App Taxes, and H&R Block Free Online allow free federal e-file depending on income/ZIP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which software is fastest and easiest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cash App Taxes and TaxSlayer are fast and mobile-friendly, H&R Block guides complex returns step-by-step."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these alternatives available in all 50 states?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most major alternatives support e-filing in all 50 states. Always check your ZIP code for eligibility."
+      }
+    }
+  ]
+}
 </script>
 
 <style>
@@ -30,6 +82,7 @@ input,button{font-size:1rem;border-radius:8px}
 input[type=number]{width:150px;margin:5px;padding:10px 15px}
 button{padding:10px 20px;background:#28a745;color:#fff;font-weight:bold;border:none;cursor:pointer}
 </style>
+
 </head>
 <body>
 
@@ -57,17 +110,17 @@ button{padding:10px 20px;background:#28a745;color:#fff;font-weight:bold;border:n
 
 <!-- ZIP Check -->
 <div style="text-align:center;margin:30px 0">
-<input id="zip" placeholder="Enter ZIP" maxlength="10">
-<button onclick="checkZip()">Check ZIP</button>
+<input id="zip" placeholder="Enter ZIP" maxlength="10" aria-label="Enter ZIP code">
+<button onclick="checkZip()" aria-label="Check eligibility based on ZIP code">Check ZIP</button>
 <div id="zipResult" style="margin-top:10px;font-weight:bold;"></div>
 </div>
 
 <!-- Refund Calculator -->
 <div style="text-align:center;margin:20px 0">
 <h3>💰 Estimate Refund</h3>
-<input id="income" type="number" placeholder="Income">
-<input id="taxes" type="number" placeholder="Taxes Paid">
-<button onclick="calcRefund()">Calculate Refund</button>
+<input id="income" type="number" placeholder="Income" aria-label="Enter your income">
+<input id="taxes" type="number" placeholder="Taxes Paid" aria-label="Enter the taxes you've paid">
+<button onclick="calcRefund()" aria-label="Calculate your refund">Calculate Refund</button>
 <div id="refundResult" style="margin-top:10px;font-weight:900;"></div>
 </div>
 
@@ -94,7 +147,6 @@ button{padding:10px 20px;background:#28a745;color:#fff;font-weight:bold;border:n
 <h3 id="freetaxusa">FreeTaxUSA</h3><p>Free federal + low-cost state filing.</p>
 <h3 id="cashapp">Cash App Taxes</h3><p>Completely free federal & state filing.</p>
 <h3 id="jacksonhewitt">Jackson Hewitt Online</h3><p>Hybrid online/in-person option.</p>
-<h3 id="efile">eFile.com</h3><p>Simple online filing.</p>
 <h3 id="libertytax">Liberty Tax</h3><p>Online + in-person services.</p>
 
 <script>
@@ -117,14 +169,6 @@ function calcRefund(){
   result.textContent="💵 Estimated Refund: $"+estimated.toLocaleString();
   result.style.color="#28a745";
 }
-
-// ⚡ Instant Ping to Google & Bing for faster indexing
-(function(){
-  const sitemap = encodeURIComponent("https://brightlane.github.io/efilefast/sitemap.xml");
-  new Image().src = "https://www.google.com/ping?sitemap=" + sitemap;
-  new Image().src = "https://www.bing.com/webmaster/ping.aspx?siteMap=" + sitemap;
-  console.log("✅ Pinging Google & Bing for faster indexing...");
-})();
 </script>
 
 </body>
